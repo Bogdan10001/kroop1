@@ -1,0 +1,25 @@
+#ifndef CART_H
+#define CART_H
+
+#include "Product.h" // Потрібно знати про клас Product
+#include <vector>    // Оскільки кошик містить вектор продуктів
+
+class Cart {
+private:
+    // Композиція: Cart "володіє" списком продуктів
+    std::vector<Product> products;
+
+public:
+    // Конструктор за замовчуванням (порожній)
+    Cart();
+
+    // 2. Реалізація методів
+    void AddToCart(const Product& p);
+    void RemoveFromCart(const Product& p_to_remove);
+    double CalculateTotal() const;
+
+    // Допоміжний метод (не вимагався, але корисний)
+    void ShowItems() const;
+};
+
+#endif // CART_H
