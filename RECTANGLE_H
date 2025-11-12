@@ -1,0 +1,38 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+#include <cmath> // Для sqrt() та pow()
+#include <stdexcept> // Для винятків
+
+class Rectangle {
+private:
+    double x1, y1, x2, y2;
+
+public:
+    // Конструктор з параметрами
+    Rectangle(double r_x1, double r_y1, double r_x2, double r_y2);
+
+    // --- Методи встановлення полів ---
+    // Встановлює нові координати з перевіркою коректності
+    void setFields(double new_x1, double new_y1, double new_x2, double new_y2);
+
+    // --- Методи повернення значень (геттери) ---
+    double getX1() const;
+    double getY1() const;
+    double getX2() const;
+    double getY2() const;
+
+    // --- Методи обчислень ---
+    // Обчислення довжини діагоналі
+    double calculateDiagonal() const;
+
+    // Обчислення периметра
+    double calculatePerimeter() const;
+
+private:
+    // Внутрішній метод для перевірки коректності
+    // Прямокутник не може бути точкою або лінією
+    bool areCoordinatesValid(double cx1, double cy1, double cx2, double cy2) const;
+};
+
+#endif // RECTANGLE_H
