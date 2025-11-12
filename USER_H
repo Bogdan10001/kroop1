@@ -1,0 +1,24 @@
+#ifndef USER_H
+#define USER_H
+
+#include "Cart.h" // User "володіє" кошиком
+#include <string>
+
+class User {
+private:
+    std::string username;
+
+    // 1. Композиція: Кошик належить користувачу
+    // Об'єкт Cart створюється та знищується разом з User
+    Cart cart;
+
+public:
+    User(const std::string& name);
+
+    std::string getUsername() const;
+
+    // Метод для отримання доступу до кошика
+    Cart& getCart(); // Повертаємо посилання, щоб можна було змінювати кошик
+};
+
+#endif // USER_H
